@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.dragonfly.boot.cms.mapper.UserMapper">
+	
+	<!-- 查询所有数据 -->
+	<select id="queryAllUser" resultType="com.dragonfly.boot.cms.domain.User">
+		SELECT
+		t.id AS id,
+		t.account AS account,
+		t.user_name AS userName
+		FROM
+		t_user t
+	</select>
+
+	<!-- 查询所有数据 -->
+	<select id="queryUserByUserName" resultType="com.dragonfly.boot.cms.domain.User">
+		SELECT
+		t.id AS id,
+		t.account AS account,
+		t.password AS password,
+		t.user_name AS userName
+		FROM
+		t_user t
+		where
+		t.account = #{userName}
+	</select>
+</mapper>  
