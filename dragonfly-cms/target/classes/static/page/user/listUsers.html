@@ -13,45 +13,17 @@
 	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
 	<link rel="stylesheet" href="../../css/user.css" media="all" />
 </head>
-<body class="childrenBody">
+<body class="layui-fluid">
 	<blockquote class="layui-elem-quote">
-		<form class="layui-form layui-form-pane" action="">
-			<div class="layui-form-item">
-				<div class="layui-inline">
-					<label class="layui-form-label">账号</label>
-					<div class="layui-input-inline">
-						<input type="text" name="account" placeholder="账号" class="layui-input">
-					</div>
-				</div>
-				<div class="layui-inline">
-					<label class="layui-form-label">姓名</label>
-					<div class="layui-input-inline">
-						<input type="text" name="userName" placeholder="姓名" class="layui-input">
-					</div>
-				</div>
-			</div>
-
-			<div class="layui-form-item">
-				<div class="layui-input-block">
-					<button class="layui-btn" lay-submit="" lay-filter="submit">立即提交</button>
-					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-				</div>
-			</div>
-		</form>
+		账号：
+		<div class="layui-inline">
+			<input class="layui-input" name="account" id="account" autocomplete="off">
+		</div>
+		<button class="layui-btn" id="layui-btn-submit" data-type="reload">搜索</button>
 	</blockquote>
-	<div class="layui-form users_list">
-	  	<table class="layui-table">
-		    <thead>
-				<tr>
-					<th>账号</th>
-					<th>名称</th>
-					<th>操作</th>
-				</tr> 
-		    </thead>
-		    <tbody class="users_content"></tbody>
-		</table>
-	</div>
-	<div id="page"></div>
+
+	<table class="layui-hide" id="lay_table_user" lay-filter="user"></table>
+
 	<script type="text/javascript" src="../../plugins/layui/layui.js"></script>
 	<script type="text/javascript" src="listUsers.js"></script>
 </body>

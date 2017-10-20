@@ -41,11 +41,13 @@ public class UserController
         return user;
     }
 
-    @RequestMapping(value="/list/page",method=RequestMethod.GET)
+    @RequestMapping(value="/list/page", method=RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> findAllByPage(int page, int pageSize){
+    public Map<String, Object> findAllByPage(int page, int limit, String account){
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        PageInfo<User> pager = userService.findUserByPage(page, pageSize);
+        PageInfo<User> pager = userService.findUserByPage(page, limit, account);
+        resultMap.put("code", 0);
+        resultMap.put("msg", "OK");
         //总条数
         resultMap.put("total", pager.getTotal());
         //获取每页数据

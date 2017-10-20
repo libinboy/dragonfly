@@ -25,4 +25,19 @@
 		where
 		t.account = #{userName}
 	</select>
+
+	<!-- 查询所有数据 -->
+	<select id="queryUser" resultType="com.dragonfly.boot.cms.domain.User">
+		SELECT
+		t.id AS id,
+		t.account AS account,
+		t.user_name AS userName
+		FROM
+		t_user t
+		<where>
+			<if test="account != null">
+				t.account = #{account}
+			</if>
+		</where>
+	</select>
 </mapper>  

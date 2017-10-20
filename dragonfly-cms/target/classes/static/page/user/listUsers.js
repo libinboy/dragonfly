@@ -1,65 +1,61 @@
 layui.config({
 	base : "js/"
-}).use(['form','jquery','laypage','laydate'],function(){
-	var laypage = layui.laypage,
-        form = layui.form,
-        layer = layui.layer,
-        laydate = layui.laydate,
-		$ = layui.jquery;
+}).use(['table'],function(){
 
-    //监听提交
-    form.on('submit(submit)', function(data){
-        layer.alert(JSON.stringify(data.field), {
-            title: '最终的提交信息'
-        });
-        return false;
+	var table = layui.table;
+
+    //方法级渲染
+    table.render({
+        elem: '#lay_table_user',
+        url: '/user/list/page',
+        method : 'post',
+        loading: true,
+        page: true,
+        sort :true,
+        limits: [10,20,30,50],
+        limit: 10,
+        cols: [[
+            {checkbox: true, fixed: true}
+            ,{field:'id', title: 'ID', width:80, sort: true, fixed: true}
+            ,{field:'account', title: '账号', width:80}
+            ,{field:'userName', title: '姓名', width:80, sort: true}
+        ]],
+        request: {
+            pageName: 'page', //页码的参数名称，默认：page
+            limitName: 'limit' //每页数据量的参数名，默认：limit
+        },
+        response: {
+            statusName: 'code', //数据状态的字段名称，默认：code
+            statusCode: 0, //成功的状态码，默认：0
+            msgName: 'msg', //状态信息的字段名称，默认：msg
+            countName: 'total', //数据总数的字段名称，默认：count
+            dataName: 'rows', //数据列表的字段名称，默认：data
+        },
+        done: function (response, curr, count) {
+            console.log(response);
+            //得到当前页码
+            console.log(curr);
+            //得到数据总量
+            console.log(count);
+        },
+        id: 'testReload'
+
     });
 
-	//加载页面数据
-    var url = "/user/list/page";
-    var config = {page:1, pageSize:10};
-	$.getJSON(url, config, function(res){
-        laypage.render({
-            elem: 'page',
-            count: res.total, //总条数
-            limit: config.pageSize, //每页条数
-            theme: '#FFB800', //自定义颜色
-            jump: function(obj, first){
-                if(!first){ //首次则不进入
-                    config.page = obj.curr;
-                    getUserListByPage(url,config);
+    var $ = layui.$, active = {
+        reload: function(){
+            var account = $('#account');
+            table.reload('testReload', {
+                where: {
+                    account: account.val()
                 }
-            }
-        });
-		//执行加载数据的方法
-        parseUserList(res, config.page);
-	});
+            });
+        }
+    };
 
-    //点击页数从后台获取数据
-    function getUserListByPage(url, config){
-        $.getJSON(url, config, function(res){
-            parseUserList(res, config.page);
-        });
-    }
-
-    //解析数据，currPage参数为预留参数，当删除一行刷新列表时，可以记住当前页而不至于显示到首页去
-    function parseUserList(res, currPage){
-        var content = "";
-        $.each(res.rows, function (i, o) {
-            content += '<tr>';
-            content += '<td>'+o.account+'</td>';
-            content += '<td>'+o.userName+'</td>';
-            content += '<td>';
-            content +=  '<a class="layui-btn layui-btn-mini user_edit"><i class="iconfont icon-edit"></i> 编辑</a>';
-            content += '</td>';
-            content += '</tr>';
-        });
-        $('.users_content').html(content);
-    }
-
-    //操作
-    $("body").on("click",".user_edit",function(){  //编辑
-        layer.alert('您点击了文章编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'文章编辑'});
+    $('#layui-btn-submit').on('click', function(){
+        var type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
     })
         
 })

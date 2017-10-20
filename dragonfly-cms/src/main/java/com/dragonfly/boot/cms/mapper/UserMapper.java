@@ -12,4 +12,6 @@ public interface UserMapper
 
     User queryUserByUserName(@Param("userName") String userName);
 
+    List<User> queryUser(@Param("account") String account);
+
 }

@@ -12,6 +12,6 @@ public interface UserService
 
     User queryUserByUserName(String userName);
 
-    PageInfo<User> findUserByPage(int page, int pageSize);
+    PageInfo<User> findUserByPage(int page, int pageSize, String account);
 
 }

@@ -15,11 +15,11 @@ layui.config({
 	
 	//登录按钮事件
 	form.on("submit(login)",function(data){
-        $.post('/login/authenticate',data.field,function(res){
-        	if (res == "true") {
+        $.post('/login/authenticate', data.field, function(res){
+        	if (res.status == "200") {
                 window.location.href = "../../index.html";
 			} else {
-                layer.msg('用户名或密码错误');
+                layer.msg(res.message);
             }
 
         });
