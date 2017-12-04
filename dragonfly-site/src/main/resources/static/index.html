@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dragonfly 社区</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="fly,layui,前端社区">
+  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
+  <link rel="stylesheet" href="../layui/css/layui.css">
+  <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="main">
+    <a class="logo" href="/" title="Fly">Dragonfly 社区</a>
+    <div class="nav">
+      <a class="nav-this" href="/">
+		笑话
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main layui-clear">
+  <div class="wrap">
+	  <div class="fly-tab fly-tab-index">
+		<span id="joke-nav">
+		  <a href="joke/duanzi" class="tab-this">段子</a>
+		  <a href="joke/tuwen">图文</a>
+		  <a href="joke/qutu">趣图</a>
+		  <a href="joke/shipin">视频</a>
+		</span>
+		<a href="view/joke/add.html" class="layui-btn jie-add">发布问题</a>
+	  </div>      
+	  
+	  <ul class="fly-list fly-list-top">
+		<li class="fly-list-li">
+		  <a href="user/home.html" class="fly-list-avatar">
+			<img src="http://tp4.sinaimg.cn/1345566427/180/5730976522/0" alt="">
+		  </a>
+		  <div>
+			如果你得罪了老板，失去的只是一份工作；如果你得罪了客户，失去的不过是一份订单；是的，世上只有一个人可以得罪：你给她脸色看，你冲她发牢骚，你大声顶撞她，甚至当 着她的面摔碗，她都不会记恨你，原因很简单，因为她是你的母亲。
+			如果你得罪了老板，失去的只是一份工作；如果你得罪了客户，失去的不过是一份订单；是的，世上只有一个人可以得罪：你给她脸色看，你冲她发牢骚，你大声顶撞她，甚至当 着她的面摔碗，她都不会记恨你，原因很简单，因为她是你的母亲。
+		  </div>
+		  <p>
+			<span><a href="user/home.html">dragonfly</a></span>
+			<span>刚刚</span>
+			<span>段子</span>
+			<span class="fly-list-hint"> 
+			  <i class="iconfont" title="回答">&#xe60c;</i> 317
+			  <i class="iconfont" title="人气">&#xe60b;</i> 6830
+			</span>
+		  </p>
+		</li>
+	  </ul>
+	  
+	  <div style="text-align: center">
+		<div class="laypage-main">
+		  <a href="jie/index.html" class="laypage-next">更多求解</a>
+		</div>
+	  </div>
+  </div>	
+</div>
+
+<div class="footer">
+  
+</div>
+<script src="../layui/layui.js"></script>
+<script>
+layui.cache.page = '';
+layui.cache.user = {
+  username: '游客'
+  ,uid: -1
+  ,avatar: '../images/avatar/00.jpg'
+  ,experience: 83
+  ,sex: '男'
+};
+layui.config({
+  version: "2.0.0"
+  ,base: '../mods/'
+}).extend({
+  fly: 'index'
+}).use('fly');
+</script>
+
+</body>
+</html>

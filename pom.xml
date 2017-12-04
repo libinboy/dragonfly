@@ -10,6 +10,7 @@
     <version>1.0.0</version>
     <modules>
         <module>dragonfly-cms</module>
+        <module>dragonfly-site</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->
