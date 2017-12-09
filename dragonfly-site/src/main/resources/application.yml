@@ -34,3 +34,13 @@ spring:
 #mybatis
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
+#图形验证码相关配置
+kaptcha:
+  border: no
+  borderColor: 105,179,90
+  textProducerFontColor: black
+  textProducerFontSize: 30
+  textProducerFontNames: Arial,\u5b8b\u4f53
+  textProducerCharLength: 4
+  imageWidth: 116
+  imageHeight: 36

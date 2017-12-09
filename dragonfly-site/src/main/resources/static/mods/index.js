@@ -65,10 +65,11 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
         data: data,
         url: url,
         success: function(res){
-          if(res.status === 0) {
+          debugger;
+          if(res.status == 200) {
             success && success(res);
           } else {
-            layer.msg(res.msg || res.code, {shift: 6});
+            layer.msg(res.message || res.code, {shift: 6});
             options.error && options.error();
           }
         }, error: function(e){

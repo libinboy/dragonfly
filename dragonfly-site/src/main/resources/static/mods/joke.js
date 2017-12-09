@@ -34,7 +34,7 @@ layui.define('fly', function(exports){
     </li>';
 	
 	//异步渲染, 加载列表
-	fly.json('../../json/joke_json.js', function(res){
+	fly.json('/joke/list/all', function(res){
 		var joke_list_html = "";
 		layui.each(res.data, function(index, item){				
 			var html = laytpl(tpl).render({

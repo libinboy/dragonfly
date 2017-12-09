@@ -1,6 +1,7 @@
 package com.dragonfly.boot.site.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.dragonfly.boot.site.common.ResponseJson;
 import com.dragonfly.boot.site.entity.Joke;
 import com.dragonfly.boot.site.service.JokeService;
 import io.swagger.annotations.Api;
@@ -31,10 +32,12 @@ public class JokeController
     @ApiOperation(value = "查询笑话列表", notes = "")
     @GetMapping("/list/all")
     @ResponseBody
-    public List<Joke> getAllJoke()
+    public ResponseJson getAllJoke()
     {
+        ResponseJson responseJson = new ResponseJson();
         EntityWrapper<Joke> ew = new EntityWrapper<>();
         List<Joke> jokes = jokeService.selectList(ew);
-        return jokes;
+        responseJson.setData(jokes);
+        return responseJson;
     }
 }

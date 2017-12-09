@@ -1,5 +1,5 @@
 {
-    "status": 0,
+    "status": 200,
     "data": [
         {
             "jokeId": 5308464,
