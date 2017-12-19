@@ -13,9 +13,9 @@ spring:
     cache: false
   datasource:
       name: test
-      url: jdbc:mysql://120.78.206.93:3306/dragonfly?useUnicode=true&characterEncoding=UTF8
+      url: jdbc:mysql://localhost:3306/dragonfly?useUnicode=true&characterEncoding=UTF8 #120.78.206.93
       username: root
-      password: dragonfly
+      password: root #dragonfly
       type: com.alibaba.druid.pool.DruidDataSource # 使用druid数据源
       driver-class-name: com.mysql.jdbc.Driver
       filters: stat
@@ -39,7 +39,7 @@ kaptcha:
   border: no
   borderColor: 105,179,90
   textProducerFontColor: black
-  textProducerFontSize: 30
+  textProducerFontSize: 30MybatisProperties
   textProducerFontNames: Arial,\u5b8b\u4f53
   textProducerCharLength: 4
   imageWidth: 116

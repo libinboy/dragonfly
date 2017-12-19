@@ -1,6 +1,6 @@
 package com.dragonfly.boot.site.service;
 
-import com.baomidou.mybatisplus.plugins.Page;
+
 import com.baomidou.mybatisplus.service.IService;
 import com.dragonfly.boot.site.entity.User;
 
@@ -11,5 +11,6 @@ public interface UserService extends IService<User>
 {
 
     boolean deleteAll();
+
 
 }

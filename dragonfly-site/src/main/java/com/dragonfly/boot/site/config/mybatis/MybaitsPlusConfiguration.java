@@ -1,10 +1,11 @@
-package com.dragonfly.cloud.security.config.mybatis;
+package com.dragonfly.boot.site.config.mybatis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
+
 
 /**
  * Created by Administrator on 2017/11/2 0002.
@@ -30,4 +31,5 @@ public class MybaitsPlusConfiguration
         paginationInterceptor.setDialectType("mysql");
         return paginationInterceptor;
     }
+
 }

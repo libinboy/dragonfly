@@ -24,7 +24,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.augus.site" level="DEBUG">
+	<logger name="com.dragonfly.boot.site" level="DEBUG">
 		<appender-ref ref="baselog" />
 	</logger>
 

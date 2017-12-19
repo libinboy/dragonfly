@@ -5,20 +5,20 @@
 	"spread" : false
 },{"title" : "用户管理",
 	"icon" : "icon-text",
-	"href" : "page/user/listUsers.html",
+	"href" : "user/listUsers.html",
 	"spread" : false
 },{
-	"title" : "文章列表",
+	"title" : "笑话列表",
 	"icon" : "icon-text",
-	"href" : "page/news/newsList.html",
+	"href" : "joke/listJoke.html",
 	"spread" : false
 },{
-	"title" : "友情链接",
+	"title" : "菜单管理",
 	"icon" : "&#xe64c;",
-	"href" : "page/links/linksList.html",
+	"href" : "menu/listMenu.html",
 	"spread" : false
 },{
-	"title" : "系统基本参数",
+	"title" : "系统管理",
 	"icon" : "&#xe631;",
 	"href" : "page/systemParameter/systemParameter.html",
 	"spread" : false
